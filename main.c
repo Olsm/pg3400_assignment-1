@@ -7,11 +7,11 @@ int main(int argc, char *argv[])
     char name[48];
     char names[2048][sizeof(name)];
     int count = 0;
-    FILE * file;
+    FILE * file = NULL;
 
     // Try and open the file for reading, or exit with error
 
-    file = fopen("txt/ships.txt", "r");
+    if (argc >= 2) file = fopen(argv[1], "r");
     if (file == NULL){
         perror("Could not open file");
         exit(1);
